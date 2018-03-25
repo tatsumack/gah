@@ -85,11 +85,14 @@ func setupAction(c *cli.Context) {
 		defer src.Close()
 
 		var dstName = contestPath + titles[i] + ".cpp"
-		dst, _ := os.Create(dstName)
-		defer dst.Close()
+		_, err := os.Stat(dstName)
+		if err != nil {
+			dst, _ := os.Create(dstName)
+			defer dst.Close()
 
-		_, _ = io.Copy(dst, src)
-		fmt.Printf("create %s\n", dstName)
+			_, _ = io.Copy(dst, src)
+			fmt.Printf("create %s\n", dstName)
+		}
 
 		var taskUrl = contestUrl + urls[i]
 		taskDoc, err := goquery.NewDocument(taskUrl)
