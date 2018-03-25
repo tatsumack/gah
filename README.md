@@ -1,0 +1,2 @@
+# gah
+golang atcoder helper
