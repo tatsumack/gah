@@ -170,9 +170,9 @@ func testAction(c *cli.Context) {
 			fmt.Println("\x1b[32mAC\x1b[0m")
 		} else {
 			fmt.Println("\x1b[31mWA\x1b[0m")
-			fmt.Printf("expected: %s", string(expected))
-			fmt.Printf("got: %s", string(got))
 		}
+		fmt.Printf("expected: %s", string(expected))
+		fmt.Printf("got: %s", string(got))
 
 		index++
 		fmt.Println("")
